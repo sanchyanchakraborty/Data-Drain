@@ -80,6 +80,9 @@ These shell scripts are created to consume your internet bandwidth and exhaust y
 
     Email: sanchyanchakraborty@gmail.com
 
-    Twitter: 
+    Twitter: @sanchyan_dev [https://x.com/sanchyan_dev]
+
+    Instagram: @sanchyan_ [https://www.instagram.com/sanchyan_/]
+    
 
 Thank you for checking out our project!
