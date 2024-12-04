@@ -4,7 +4,7 @@
 FILE_PATH="./garbage-file-for-upload-script/50MB.zip"
 
 # API endpoint URL
-API_URL="http://212.183.159.230/1GB.zip"
+API_URL="https://www.facebook.com"
 
 : '
 You can change any API URL for uploading the garbage file to consume your upload bandwidth. 
@@ -17,7 +17,7 @@ If the API endpoint supports 50MB or less, you can change the file to a differen
 # Infinite loop to upload the file
 while true; do
     # Upload the file using curl
-    curl -X POST -F "file=@$FILE_PATH" $API_URL
+    curl -X POST -F "file=@$FILE_PATH" $API_URL -o /dev/null
 
     #echo "Uploaded $FILE_PATH to $API_URL"
 

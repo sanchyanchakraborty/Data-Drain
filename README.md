@@ -20,6 +20,25 @@ These shell scripts are created to consume your internet bandwidth and exhaust y
 * Make sure you have permission to execute the files, or run the command below:
 * The script will continue to run until you stop it.
 
+* ## Mac OS or Linux
+
+    * The commands are listed below:
+
+        ```
+        cd Data-Drain/
+        chmod u=+rwx download.sh
+        chmod u=+rwx upload.sh
+        ./download.sh         
+        ```
+        Press Control + C to cancel the script.
+
+        To run upload.sh, you can use a different terminal for running both the upload and  download scripts simultaneously, or you can use the same terminal.
+
+        ```
+        ./upload.sh       
+        ```
+        Press Control + C to cancel the script.
+
 * ## Windows
 
     * The commands are listed below:
@@ -27,4 +46,3 @@ These shell scripts are created to consume your internet bandwidth and exhaust y
         ```
         
         ```
-
