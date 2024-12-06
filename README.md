@@ -56,7 +56,132 @@ These shell scripts are created to consume your internet bandwidth and exhaust y
         ./upload.sh       
         ```
         Press Control + C to cancel the script.
+* ## Running on Linux Server at Startup
+    If you want to run this application on a Linux server so that it starts automatically when the server boots up, follow these steps:
+        
+    Steps to Create and Enable Systemd Services:
 
+    ## Create Service Files:
+    1. You'll need to create a separate service file for each script
+    ## Edit the Service Files:
+    1. Place the service files in the /etc/systemd/system/ directory.
+    ## Example Service File:
+    Suppose you have two scripts: script1.sh and script2.sh located in /home/username/.
+    
+    ### script1.service
+
+
+        ```
+        [Unit]
+        Description=Script 1 Service
+        After=network.target
+
+        [Service]
+        ExecStart=/home/username/script1.sh
+        Restart=always
+        User=username
+
+        [Install]
+        WantedBy=multi-user.target
+
+        script2.service
+
+        [Unit]
+        Description=Script 2 Service
+        After=network.target
+
+        [Service]
+        ExecStart=/home/username/script2.sh
+        Restart=always
+        User=username
+
+        [Install]
+        WantedBy=multi-user.target
+
+        ```
+
+    ### script2.service
+
+        ```
+        [Unit]
+        Description=Script 2 Service
+        After=network.target
+
+        [Service]
+        ExecStart=/home/username/script2.sh
+        Restart=always
+        User=username
+
+        [Install]
+        WantedBy=multi-user.target
+
+        script2.service
+
+        [Unit]
+        Description=Script 2 Service
+        After=network.target
+
+        [Service]
+        ExecStart=/home/username/script2.sh
+        Restart=always
+        User=username
+
+        [Install]
+        WantedBy=multi-user.target
+
+
+        ```
+
+    Please change the file path to the actual base server file path in upload.sh. 
+    
+    For example:
+
+    ``` 
+    FILE_PATH="/home/username/garbage-file-for-upload-script/50MB.zip"
+    ```
+
+    ### Steps to Implement:
+    Create the Service Files:
+
+    ```
+    sudo nano /etc/systemd/system/script1.service
+    ```
+
+    ```
+    sudo nano /etc/systemd/system/script2.service
+    ```
+
+    ### Copy the Example Content into each file.
+
+    ### Enable and Start the Services:
+
+    ```
+    sudo systemctl enable script1.service
+    sudo systemctl enable script2.service
+
+    sudo systemctl start script1.service
+    sudo systemctl start script2.service
+    ```
+
+    ### Check the Status:
+
+    ```
+    sudo systemctl status script1.service
+    sudo systemctl status script2.service
+    ```
+
+    ### Check System Logs:
+
+    ```
+    sudo journalctl -u script1.service
+    ```
+
+    ### Reload Systemd Daemon: 
+    If you made any changes to the unit file, reload the systemd daemon to apply the changes:
+
+    ```
+    sudo systemctl daemon-reload
+    ```
 
 * ## Contributing
     We welcome contributions! Please follow these steps to contribute:
